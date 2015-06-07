@@ -1,11 +1,12 @@
 package mum.waaproject.model;
 
-public class Category implements Item {
-
+public class Product {
 	private int id;
 	private String name;
 	private String description;
-	private int parentid;
+	private double price;
+	private String feature;
+	private Stock stock;
 
 	public int getId() {
 		return id;
@@ -31,36 +32,28 @@ public class Category implements Item {
 		this.description = description;
 	}
 
-	public int getParentid() {
-		return parentid;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setParentid(int parentid) {
-		this.parentid = parentid;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public void addItem(Item item) {
-
+	public String getFeature() {
+		return feature;
 	}
 
-	public void removeItem(Item item) {
-
+	public void setFeature(String feature) {
+		this.feature = feature;
 	}
 
-	public Item getChild(int index) {
-		return null;
+	public Stock getStock() {
+		return stock;
 	}
 
-	@Override
-	public Item findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void sell(int id) {
-		// TODO Auto-generated method stub
-
+	public void setStock(Stock stock) {
+		this.stock = stock;
 	}
 
 }
