@@ -1,6 +1,10 @@
 package mum.waaproject.model;
 
+import javax.persistence.Embeddable;
+
+
 public class Normal implements CustomerRole {
+	
 	
 	private Integer points;
 	

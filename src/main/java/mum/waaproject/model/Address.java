@@ -1,11 +1,24 @@
 package mum.waaproject.model;
 
-public class Address {
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
+@Embeddable
+public class Address {
+	
+	@Column(name="street")
 	private String street;
+	
+	@Column(name="city")
 	private String city;
+	
+	@Column(name="state")
 	private String state;
+	
+	@Column(name="zip")
 	private String zip;
+	
+	@Column(name="country")
 	private String country;
 
 	public String getStreet() {

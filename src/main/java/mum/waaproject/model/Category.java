@@ -1,11 +1,57 @@
 package mum.waaproject.model;
 
-public class Category implements Item {
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "category")
+public class Category {
+
+	@Id
+	@Column(name = "category_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "description")
 	private String description;
-	private int parentid;
+
+	@Column(name = "leaf")
+	private boolean leaf;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Category parent;
+
+	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+	List<Category> children = new ArrayList<Category>();
+	
+	@OneToMany(mappedBy="category")
+	List<Product> products = new ArrayList<Product>();
+
+	@ManyToOne
+	@JoinColumn(name = "store_id", nullable = false, updatable = false, insertable = false)
+	private Store store;
+
+	public Category(int id, String name, String description, boolean leaf) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.leaf = leaf;
+	}
 
 	public int getId() {
 		return id;
@@ -31,36 +77,48 @@ public class Category implements Item {
 		this.description = description;
 	}
 
-	public int getParentid() {
-		return parentid;
+	public boolean isLeaf() {
+		return leaf;
 	}
 
-	public void setParentid(int parentid) {
-		this.parentid = parentid;
+	public void setLeaf(boolean leaf) {
+		this.leaf = leaf;
 	}
 
-	public void addItem(Item item) {
-
+	public Category getParent() {
+		return parent;
 	}
 
-	public void removeItem(Item item) {
-
+	public void setParent(Category parent) {
+		this.parent = parent;
 	}
 
-	public Item getChild(int index) {
+	public List<Category> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Category> children) {
+		this.children = children;
+	}
+
+	public Store getStore() {
+		return store;
+	}
+
+	public void setStore(Store store) {
+		this.store = store;
+	}
+
+	public void addItem(Category category) {
+		children.add(category);
+	}
+
+	public void removeItem(Category category) {
+		children.remove(category);
+	}
+
+	public Category getChild(int index) {
 		return null;
-	}
-
-	@Override
-	public Item findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void sell(int id) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
