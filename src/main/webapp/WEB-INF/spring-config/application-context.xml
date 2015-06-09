@@ -52,6 +52,7 @@
 	
 	<!-- Local Resources -->
 	<mvc:resources location="/resources/css/" mapping="/css/**"></mvc:resources>
-	<mvc:resources location="resources/javascript/" mapping="/javascript/**"></mvc:resources>
+	<mvc:resources location="/resources/javascript/" mapping="/javascript/**"></mvc:resources>
+	<mvc:resources location="/resources/images/" mapping="/images/**"></mvc:resources>
 	 
 </beans>
