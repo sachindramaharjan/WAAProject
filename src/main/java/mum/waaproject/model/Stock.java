@@ -24,7 +24,7 @@ public class Stock {
 	@Column(name = "available")
 	private int available;
 
-	@Column(name = "status")
+	@Column(name = "status", nullable=false)
 	private String Status;
 	
 	@OneToOne

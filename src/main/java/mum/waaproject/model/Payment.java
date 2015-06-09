@@ -19,15 +19,15 @@ public class Payment {
 	@Column(name = "payment_id")
 	private int paymentId;
 
-	@Column(name = "status")
+	@Column(name = "status", nullable=false)
 	private String status;
 
-	@Column(name = "method")
+	@Column(name = "method", nullable=false)
 	private String method;
 
 	@ManyToOne
-	@JoinColumn(name = "customer_id")
-	private Customer customer;
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@OneToOne
 	@JoinColumn(name = "order_id")
@@ -55,6 +55,22 @@ public class Payment {
 
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+
+	public String getMethod() {
+		return method;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

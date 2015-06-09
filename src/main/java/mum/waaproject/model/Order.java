@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,24 +23,27 @@ public class Order {
 	@Column(name = "order_id")
 	private int orderId;
 
-	@Column(name = "total_amount")
+	@Column(name = "total_amount", nullable=false)
 	private double totalAmount;
 
-	@Column(name = "ordered_date")
+	@Column(name = "ordered_date", nullable=false)
 	private Date orderedDate;
 
 	@Column(name = "shipped_date")
 	private Date shippedDate;
 
-	@Column(name = "status")
+	@Column(name = "status", nullable=false)
 	private String status;
 
 	@OneToMany(mappedBy = "order")
 	private List<OrderLine> orderLine;
 
 	@ManyToOne
-	@JoinColumn(name = "customer_id")
-	private Customer customer;
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@Embedded
+	private Address address;
 
 	public int getOrderId() {
 		return orderId;
@@ -89,12 +93,20 @@ public class Order {
 		this.orderLine = orderLine;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }

@@ -19,10 +19,10 @@ public class OrderLine {
 	@Column(name = "line_id")
 	private int lineId;
 
-	@Column(name = "price")
+	@Column(name = "price", nullable=false)
 	private double price;
 
-	@Column(name = "quantity")
+	@Column(name = "quantity", nullable=false)
 	private int quantity;
 
 	@ManyToOne

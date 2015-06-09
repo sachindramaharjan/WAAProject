@@ -22,18 +22,18 @@ public class Store {
 	@Id
 	@Column(name = "store_id", nullable=false, unique=true)
 	@GeneratedValue(generator = "gen")
-	@GenericGenerator(name = "gen", strategy = "foreign", parameters = @Parameter(name = "property", value = "customer"))
+	@GenericGenerator(name = "gen", strategy = "foreign", parameters = @Parameter(name = "property", value = "user"))
 	private int id;
 
-	@Column(name = "name")
+	@Column(name = "name", nullable=false)
 	private String name;
 
-	@Column(name = "description")
+	@Column(name = "description", nullable=false)
 	private String description;
 
 	@OneToOne
 	@PrimaryKeyJoinColumn
-	private Customer customer;
+	private User user;
 	
 	@OneToMany(mappedBy="store")
 	private List<Category> categorylist = new ArrayList<Category>();
@@ -62,21 +62,23 @@ public class Store {
 		this.description = description;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-//	public List<Category> getCategorylist() {
-//		return categorylist;
-//	}
-//
-//	public void setCategorylist(List<Category> categorylist) {
-//		this.categorylist = categorylist;
-//	}
+	public List<Category> getCategorylist() {
+		return categorylist;
+	}
+
+	public void setCategorylist(List<Category> categorylist) {
+		this.categorylist = categorylist;
+	}
+	
+	
 	
 	
 

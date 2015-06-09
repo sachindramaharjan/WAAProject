@@ -24,7 +24,7 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "name")
+	@Column(name = "name", nullable=false)
 	private String name;
 
 	@Column(name = "description")
@@ -34,6 +34,7 @@ public class Category {
 	private boolean leaf;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="parent_category")
 	private Category parent;
 
 	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)

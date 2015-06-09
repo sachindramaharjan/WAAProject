@@ -6,19 +6,19 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Address {
 	
-	@Column(name="street")
+	@Column(name="street", nullable=false)
 	private String street;
 	
-	@Column(name="city")
+	@Column(name="city", nullable=false)
 	private String city;
 	
-	@Column(name="state")
+	@Column(name="state", nullable=false)
 	private String state;
 	
-	@Column(name="zip")
+	@Column(name="zip", nullable=false)
 	private String zip;
 	
-	@Column(name="country")
+	@Column(name="country", nullable=false)
 	private String country;
 
 	public String getStreet() {
