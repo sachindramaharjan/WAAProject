@@ -1,5 +1,5 @@
 package mum.waaproject.enumeration;
 
-public enum UserRole {
+public enum Role {
 	ADMIN, SELLER, ROLE;
 }

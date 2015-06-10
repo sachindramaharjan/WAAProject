@@ -2,6 +2,7 @@ package mum.waaproject.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 
 @Embeddable
 public class Customer {
@@ -17,6 +18,9 @@ public class Customer {
 
 	@Column(name = "mobile")
 	private String mobile;
+	
+	@Embedded
+	private Address address;
 
 	public String getFirstname() {
 		return firstname;
@@ -48,6 +52,14 @@ public class Customer {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }

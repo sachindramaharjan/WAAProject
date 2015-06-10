@@ -24,6 +24,12 @@ public class Product {
 
 	@Column(name = "description")
 	private String description;
+	
+	@Column(name="productcode", unique=true, nullable=false)
+	private String productcode;
+	
+	@Column(name="image")
+	private String image;
 
 	@Column(name = "price")
 	private double price;
@@ -70,6 +76,22 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getProductcode() {
+		return productcode;
+	}
+
+	public void setProductcode(String productcode) {
+		this.productcode = productcode;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public double getPrice() {

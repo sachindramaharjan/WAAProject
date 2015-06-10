@@ -110,11 +110,11 @@ public class Category {
 		this.store = store;
 	}
 
-	public void addItem(Category category) {
+	public void addCategory(Category category) {
 		children.add(category);
 	}
 
-	public void removeItem(Category category) {
+	public void removeCategory(Category category) {
 		children.remove(category);
 	}
 
