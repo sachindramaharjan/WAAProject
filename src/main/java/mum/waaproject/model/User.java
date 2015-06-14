@@ -26,15 +26,15 @@ public class User {
 	@Column(name = "user_id")
 	private int id;
 
-	@Column(name = "username", nullable=false)
+	@Column(name = "username", nullable=false, unique=true)
 	private String username;
 
 	@Column(name = "password", nullable=false)
 	private String password;
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
-	private List<UserRole> role;
+	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
+	private List<UserRole> role = new ArrayList<UserRole>();
 
 	@Embedded
 	private Customer customer;
@@ -47,6 +47,18 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<Payment> payments = new ArrayList<Payment>();
+	
+	public void addUserRole(UserRole role){
+		this.role.add(role);
+	}
+	
+	public void addOrder(Order order){
+		this.orders.add(order);
+	}
+	
+	public void addPayment(Payment payment){
+		this.payments.add(payment);
+	}
 	
 	public int getId() {
 		return id;

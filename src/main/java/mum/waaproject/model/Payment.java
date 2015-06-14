@@ -30,7 +30,7 @@ public class Payment {
 	private User user;
 
 	@OneToOne
-	@JoinColumn(name = "order_id")
+	@JoinColumn(name = "order_id", unique=true)
 	private Order order;
 
 	public int getPaymentId() {

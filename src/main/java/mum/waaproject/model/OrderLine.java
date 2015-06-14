@@ -30,7 +30,7 @@ public class OrderLine {
 	private Order order;
 
 	@OneToOne
-	@JoinColumn(name = "product_id", nullable = false, insertable = false)
+	@JoinColumn(name = "product_id")
 	private Product product;
 
 	public int getLineId() {

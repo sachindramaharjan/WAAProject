@@ -30,7 +30,7 @@ public class Category {
 	@Column(name = "description")
 	private String description;
 
-	@Column(name = "leaf")
+	@Column(name = "leaf", nullable=false)
 	private boolean leaf;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -44,9 +44,11 @@ public class Category {
 	List<Product> products = new ArrayList<Product>();
 
 	@ManyToOne
-	@JoinColumn(name = "store_id", nullable = false, updatable = false, insertable = false)
+	@JoinColumn(name = "store_id", nullable = false)
 	private Store store;
 
+	public Category(){}
+	
 	public Category(int id, String name, String description, boolean leaf) {
 		this.id = id;
 		this.name = name;

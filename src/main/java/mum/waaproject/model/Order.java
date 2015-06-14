@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,7 +36,7 @@ public class Order {
 	@Column(name = "status", nullable=false)
 	private String status;
 
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<OrderLine> orderLine;
 
 	@ManyToOne
@@ -47,11 +46,12 @@ public class Order {
 	@OneToOne(mappedBy="order", cascade=CascadeType.ALL)
 	private Invoice invoice;
 	
-	@OneToOne(mappedBy="order")
+	@OneToOne(mappedBy="order", cascade=CascadeType.ALL)
 	private Payment payment;
 	
-	@Embedded
-	private Address address;
+	public void add(OrderLine orderline){
+		this.orderLine.add(orderline);
+	}
 
 	public int getOrderId() {
 		return orderId;
@@ -109,12 +109,12 @@ public class Order {
 		this.user = user;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 
 }

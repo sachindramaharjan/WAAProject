@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import mum.waaproject.enumeration.Role;
+
 @Entity
 @Table(name = "role")
 public class UserRole {
@@ -25,9 +27,13 @@ public class UserRole {
 	private String name;
 
 	@ManyToMany
-	@JoinColumn(name = "user_role")
+	@JoinColumn(name = "user_id")
 	private List<User> users = new ArrayList<User>();
 
+	public UserRole(Role admin){
+		this.name = admin.name();
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -44,12 +50,12 @@ public class UserRole {
 		this.name = name;
 	}
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+//	public List<User> getUsers() {
+//		return users;
+//	}
+//
+//	public void setUsers(List<User> users) {
+//		this.users = users;
+//	}
 
 }
