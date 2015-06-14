@@ -38,6 +38,17 @@ public class Store {
 	@OneToMany(mappedBy="store")
 	private List<Category> categorylist = new ArrayList<Category>();
 	
+	@OneToMany(mappedBy="store")
+	private List<Product> productlist = new ArrayList<Product>();
+	
+	public void addCategory(Category category){
+		categorylist.add(category);
+	}
+	
+	public void addProduct(Product product){
+		productlist.add(product);
+	}
+	
 	public int getId() {
 		return id;
 	}

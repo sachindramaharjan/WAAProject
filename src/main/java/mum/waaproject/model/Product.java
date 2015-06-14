@@ -9,9 +9,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "product")
+@Table(name = "product", uniqueConstraints=@UniqueConstraint(columnNames={"store_id", "productcode"}))
 public class Product {
 
 	@Id
@@ -25,7 +26,7 @@ public class Product {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name="productcode", unique=true, nullable=false)
+	@Column(name="productcode", nullable=false)
 	private String productcode;
 	
 	@Column(name="image")
@@ -38,12 +39,17 @@ public class Product {
 	private String feature;
 
 	@OneToOne(mappedBy="product")
+	@JoinColumn(nullable=false)
 	private Stock stock;
 	
 	@ManyToOne
 	@JoinColumn(name="category_id")
 	private Category category;
 
+	@ManyToOne
+	@JoinColumn(name="store_id", nullable=false)
+	private Store store;
+	
 	public Product() {
 	}
 
@@ -127,6 +133,12 @@ public class Product {
 		this.category = category;
 	}
 
-	
+	public Store getStore() {
+		return store;
+	}
+
+	public void setStore(Store store) {
+		this.store = store;
+	}
 	
 }

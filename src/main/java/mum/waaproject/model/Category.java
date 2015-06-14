@@ -14,9 +14,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "category")
+@Table(name = "category",  uniqueConstraints=@UniqueConstraint(columnNames={"name", "store_id"}))
 public class Category {
 
 	@Id
