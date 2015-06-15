@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- Base Template -->
+	<definition name="baseTemplate" template="/WEB-INF/layout/baseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header-top" value="/WEB-INF/layout/header-top.jsp" />
+		<put-attribute name="header-middle" value="/WEB-INF/layout/header-middle.jsp" />
+		<put-attribute name="header-bottom" value="/WEB-INF/layout/header-bottom.jsp" />
+		<put-attribute name="slider" value="" />
+		<put-attribute name="business" value="" />
+		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+	</definition>
+	
+	<!-- Main  Template - start -->
+	 <definition name="indexTemplate" template="/WEB-INF/layout/businessLayout.jsp">
+		<put-attribute name="category" value="/WEB-INF/view/category.jsp" />
+		<put-attribute name="product" value="/WEB-INF/view/home.jsp"/>
+	</definition> 
+	<definition name="shopTemplate" template="/WEB-INF/layout/businessLayout.jsp">
+		<put-attribute name="category" value="/WEB-INF/view/category.jsp" />
+		<put-attribute name="product" value="/WEB-INF/view/shop.jsp"/>
+	</definition> 
+	<definition name="productdetailTemplate" template="/WEB-INF/layout/businessLayout.jsp">
+		<put-attribute name="category" value="/WEB-INF/view/category.jsp" />
+		<put-attribute name="product" value="/WEB-INF/view/productdetail.jsp"/>
+	</definition> 
+	
+	<!-- Main  Template - stop -->
+
+
+	<!-- Renderred Template - start -->
+	<definition name="home" extends="baseTemplate">
+		<put-attribute name="title" value="Online Store" />
+		<put-attribute name="slider" value="/WEB-INF/view/slider.jsp" />
+		<put-attribute name="business" value="indexTemplate" />
+	</definition>
+	
+	<definition name="shop" extends="baseTemplate">
+		<put-attribute name="title" value="Shop" />
+		<put-attribute name="business" value="shopTemplate" />
+	</definition>
+	
+	<definition name="productdetail" extends="baseTemplate">
+		<put-attribute name="title" value="Product Detail" />
+		<put-attribute name="business" value="productdetailTemplate" />
+	</definition>
+	
+	<definition name="login" extends="baseTemplate">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="business" value="/WEB-INF/view/login.jsp" />
+	</definition>
+	
+	<definition name="cart" extends="baseTemplate">
+		<put-attribute name="title" value="Cart" />
+		<put-attribute name="business" value="/WEB-INF/view/cart.jsp" />
+	</definition>
+	
+	<definition name="checkout" extends="baseTemplate">
+		<put-attribute name="title" value="Checkout" />
+		<put-attribute name="business" value="/WEB-INF/view/checkout.jsp" />
+	</definition>
+	
+	<definition name="contactus" extends="baseTemplate">
+		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="business" value="/WEB-INF/view/contactus.jsp" />
+	</definition>
+	
+	<!-- Renderred Template - stop -->
+</tiles-definitions>

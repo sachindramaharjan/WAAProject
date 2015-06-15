@@ -25,9 +25,15 @@
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>
-				<value>/WEB-INF/defs/tiles-defination.xml</value>
+				<value>/WEB-INF/defination/tiles-defination.xml</value>
 			</list>
 		</property>
 	</bean>
+
+	<!-- Local Resources -->
+	<mvc:resources location="/resources/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/resources/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/resources/images/" mapping="/images/**"></mvc:resources>
+	<mvc:resources location="/resources/fonts/" mapping="/fonts/**"></mvc:resources>
 
 </beans>
