@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles-extras"%>
-<%@ include file="/WEB-INF/layout/taglib.jsp" %>
 
 <html>
 <head>
@@ -9,7 +8,7 @@
 <title><tiles:getAsString name="title"></tiles:getAsString></title>
 
 <link rel="stylesheet" type="text/css"
-	href="<spring:url value="/css/style.css" />" />
+	href="./css/style.css" />
 
 </head>
 <body>
