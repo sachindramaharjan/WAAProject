@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
 
 import org.springframework.web.multipart.MultipartFile;
 
-@Entity
+@Entity(name="product")
 @Table(name = "product", uniqueConstraints=@UniqueConstraint(columnNames={"store_id", "productcode"}))
 public class Product {
 

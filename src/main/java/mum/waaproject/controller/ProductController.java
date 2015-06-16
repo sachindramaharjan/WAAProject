@@ -26,6 +26,8 @@ public class ProductController {
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String newProduct(@ModelAttribute("product") Product product, BindingResult result, Model model){
 		
+		System.out.println("description" + product.getDescription());
+		
 		return "redirect:/home";
 	}
 	
