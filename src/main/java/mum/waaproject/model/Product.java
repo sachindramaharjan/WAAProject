@@ -9,7 +9,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "product", uniqueConstraints=@UniqueConstraint(columnNames={"store_id", "productcode"}))
@@ -31,7 +34,10 @@ public class Product {
 	
 	@Column(name="image")
 	private String image;
-
+	
+	@Transient
+	private MultipartFile imageFile;
+	
 	@Column(name = "price")
 	private double price;
 
@@ -99,6 +105,14 @@ public class Product {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+	
+	public MultipartFile getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(MultipartFile imageFile) {
+		this.imageFile = imageFile;
 	}
 
 	public double getPrice() {

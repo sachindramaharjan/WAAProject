@@ -2,7 +2,10 @@
 <%@ include file="../layout/taglib.jsp" %>
 <link rel="stylesheet" type="text/css" href="<spring:url value="/css/style.css" />" />
 
+
+
+
 <div id="main">
-	Dashboard
+	
 </div>
 

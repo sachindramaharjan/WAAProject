@@ -25,26 +25,19 @@
 		<put-attribute name="current" value="login" />
 	</definition>
 	
-	<definition name="newproducts" extends="common">
-		<put-attribute name="title" value="New products" />
+	<definition name="products" extends="common">
+		<put-attribute name="title" value="Products" />
 		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
-		<put-attribute name="main" value="/WEB-INF/view/newproducts.jsp" />
-		<put-attribute name="current" value="newproducts" />
+		<put-attribute name="main" value="/WEB-INF/view/products.jsp" />
+		<put-attribute name="current" value="products" />
 	</definition>
 	
-	<definition name="addproduct" extends="common">
+	 <definition name="addProduct" extends="common">
 		<put-attribute name="title" value="Add Product" />
 		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
-		<put-attribute name="main" value="/WEB-INF/view/addproducts.jsp" />
-		<put-attribute name="current" value="addproducts" />
-	</definition>
-	
-	<definition name="manageproducts" extends="common">
-		<put-attribute name="title" value="Add Product" />
-		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
-		<put-attribute name="main" value="/WEB-INF/view/manageproducts.jsp" />
-		<put-attribute name="current" value="addproducts" />
-	</definition>
+		<put-attribute name="main" value="/WEB-INF/view/addproduct.jsp" />
+		<put-attribute name="current" value="addproduct" />
+	</definition> 
 	
 	<definition name="cart" extends="common">
 		<put-attribute name="title" value="Shopping Cart" />
