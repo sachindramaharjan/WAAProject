@@ -1,5 +1,5 @@
 <%@ include file="../layout/taglib.jsp" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" type="text/css" href="<spring:url value="/css/style.css" />" />
 
 <script type="text/javascript" src="<spring:url value="/javascript/cart.js" />" ></script>
@@ -20,9 +20,9 @@
 						<tr class="cart_menu">
 							<td class="image" width="20%">Item</td>
 							<td class="description" width="30%" >Description</td>
-							<td class="price"  width="15%" >Price</td>
-							<td class="quantity" width="15%" >Quantity</td>
-							<td class="total"  width="15%">Total</td>
+							<td class="price"  width="10%" >Price</td>
+							<td class="quantity" width="10%" >Quantity</td>
+							<td class="total"  width="20%">Total</td>
 							<td ></td>
 						</tr>
 					</thead>
@@ -42,7 +42,7 @@
 								</td>
 								<td class="cart_quantity">
 									<div class="cart_quantity_button">
-										<input id="#quantity${cart.value.product.id}" class="cart_quantity_input" type="text" name="quantity"  value="<c:out value="${cart.value.quantity}"/>" autocomplete="off" size="2">
+										<input id="quantity${cart.value.product.id}" class="cart_quantity_input" type="text" name="quantity"  value="<c:out value="${cart.value.quantity}"/>" onkeypress="validate(event);" onchange="updateCart(this.id,${cart.value.product.id},'update');" autocomplete="off" size="2">
 									</div>
 								</td>
 								<td class="cart_total">
@@ -71,7 +71,7 @@
   		
   		<div class="checkout">
 			<button type="button" class="btn-primary" value="Continue Shopping" onclick="window.location='<spring:url value="/home" />'">Continue Shopping</button>
-			<button type="button" class="btn-primary" value="Add To Cart" onclick="addToCart(1)">Add To Cart</button>
+			<button type="button" class="btn-primary" value="Add To Cart" onclick="addToCart(1,1,'add')">Add To Cart</button>
 		</div>
 </div>
   	

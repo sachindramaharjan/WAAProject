@@ -1,14 +1,20 @@
-var addToCart = function(productId){
+var addToCart = function(productId, quantity, mode){
 	
 	$.ajax({
-		url:"/store/cart/add/" + productId,
+		url:"/store/cart/add/" + productId + "?quantity="+quantity+"&mode="+mode,
 		type: "PUT",
-		contentType: "application/json",
+		datatype:"json",
+		contentType:"application/json",
 		success:function(success){
-			//alert("successfully added to cart");
 		}
 	});
 }
+
+var updateCart = function(elementId,productId, mode){
+	var quantity = $("#"+elementId).val();
+	addToCart(productId, quantity, mode);
+}
+
 
 var removeFromCart = function(rowid, productId){
 	$.ajax({
@@ -24,3 +30,15 @@ var removeFromCart = function(rowid, productId){
 		}
 	});
 }
+
+function validate(evt) {
+	
+	  var theEvent = evt || window.event;
+	  var key = theEvent.keyCode || theEvent.which;
+	  key = String.fromCharCode( key );
+	  var regex = /[1-9]\d*/;
+	  if( !regex.test(key) ) {
+	    theEvent.returnValue = false;
+	    if(theEvent.preventDefault) theEvent.preventDefault();
+	  }
+	}

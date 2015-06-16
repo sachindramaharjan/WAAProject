@@ -39,13 +39,17 @@ public class Cart {
 		return total;
 	}
 
-	public void addCartItem(CartItem item) {
+	public void addCartItem(CartItem item, String mode) {
 		String productId = String.valueOf(item.getProduct().getId());
 
 		if (cartItems.containsKey(productId)) {
 			CartItem existingCartItem = cartItems.get(productId);
-			existingCartItem.setQuantity(existingCartItem.getQuantity()
+			if(mode.equalsIgnoreCase("update")){
+				existingCartItem.setQuantity(item.getQuantity());
+			}else{
+				existingCartItem.setQuantity(existingCartItem.getQuantity()
 					+ item.getQuantity());
+			}
 			cartItems.put(productId, existingCartItem);
 		} else {
 			cartItems.put(productId, item);
