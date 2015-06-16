@@ -21,27 +21,24 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product getProductByProductCode(String productCode) {
-		// TODO Auto-generated method stub
-		return null;
+	public Product findByProductCode(String productCode) {
+		 return productRepository.findByProductCode(productCode);
 	}
 
 	@Override
 	public void save(Product product) {
-		// TODO Auto-generated method stub
-		
+		productRepository.save(product);
 	}
 
 	@Override
 	public List<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Product>)productRepository.findAll();
 	}
 
 	@Override
 	public Product findOne(int productid) {
 		// TODO Auto-generated method stub
-		return null;
+		return productRepository.findOne(productid);
 	}
 
 }

@@ -8,7 +8,7 @@ public interface ProductService {
 	
 	public Product getProductById(int id);
 	
-	public Product getProductByProductCode(String productCode);
+	public Product findByProductCode(String productCode);
 	
 	public void save(Product product);
 	
