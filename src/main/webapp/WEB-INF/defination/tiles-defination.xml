@@ -46,10 +46,10 @@
 		<put-attribute name="current" value="addproducts" />
 	</definition>
 	
-	<definition name="shoppingcart" extends="common">
-		<put-attribute name="title" value="Add Product" />
+	<definition name="cart" extends="common">
+		<put-attribute name="title" value="Shopping Cart" />
 		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
-		<put-attribute name="main" value="/WEB-INF/view/shoppingcart.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/cart.jsp" />
 		<put-attribute name="current" value="cart" />
 	</definition>
 	

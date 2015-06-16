@@ -1,5 +1,9 @@
 package mum.waaproject.service;
 
-public interface ProductService {
+import mum.waaproject.model.Product;
 
+public interface ProductService {
+	
+	public Product getProductById(int id);
+	
 }

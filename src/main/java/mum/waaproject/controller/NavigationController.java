@@ -27,11 +27,6 @@ public class NavigationController {
 		return "login";
 	}
 	
-	@RequestMapping(value="/cart", method = RequestMethod.GET)
-	public String login(){
-		return "cart";
-	}
-	
 	@RequestMapping(value="/checkout", method = RequestMethod.GET)
 	public String checkout(){
 		return "checkout";

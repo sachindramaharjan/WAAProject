@@ -5,7 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <property name="context-root" value="Test"/>
         <property name="java-output-path" value="/Test/target/classes"/>
+        <property name="context-root" value="store"/>
     </wb-module>
 </project-modules>

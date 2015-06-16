@@ -30,7 +30,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
             </props>
@@ -48,7 +48,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <jpa:repositories base-package="com.springapp.mvc.repository"/>
+    <jpa:repositories base-package="mum.waaproject.repository"/>
 	
 	<!-- Local Resources -->
 	<mvc:resources location="/resources/css/" mapping="/css/**"></mvc:resources>
