@@ -10,7 +10,7 @@
   	<c:choose>
   		<c:when test="${cartsize == 0 }">
   			<div>
-  				<h2>No products added to the cart</h2>
+  				<h2><spring:message code="cart.label.productnotfound"></spring:message> </h2>
   			</div>
   		</c:when>
   		<c:otherwise>
@@ -18,11 +18,11 @@
 			  	<table style="width: 100%;text-align: center;">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image" width="20%">Item</td>
-							<td class="description" width="30%" >Description</td>
-							<td class="price"  width="10%" >Price</td>
-							<td class="quantity" width="10%" >Quantity</td>
-							<td class="total"  width="20%">Total</td>
+							<td class="image" width="20%"><spring:message code="cart.table.label.item" /></td>
+							<td class="description" width="30%" ><spring:message code="cart.table.label.description" /></td>
+							<td class="price"  width="10%" ><spring:message code="cart.table.label.price" /></td>
+							<td class="quantity" width="10%" ><spring:message code="cart.table.label.quantity" /></td>
+							<td class="total"  width="20%"><spring:message code="cart.table.label.total" /></td>
 							<td ></td>
 						</tr>
 					</thead>
@@ -49,7 +49,7 @@
 									<p class="cart_total_price">$ <c:out value="${cart.value.totalPrice}"/></p>
 								</td>
 								<td class="cart_delete">
-									<button type="button" onclick="removeFromCart('product_'+${cart.value.product.id},${cart.value.product.id});">Remove</button>
+									<button type="button" onclick="removeFromCart('product_'+${cart.value.product.id},${cart.value.product.id});"><spring:message code="cart.table.label.remove" /></button>
 								</td>
 							</tr>
 							
@@ -58,20 +58,20 @@
 							<td></td>
 							<td></td>
 							<td></td>
-							<td>Total Price</td>
+							<td><spring:message code="cart.table.label.totalPrice" /></td>
 							<td>$ ${cart.total}</td>
 						</tr>
 			  		</tbody>
 			 	 </table>  
 				
-					<input type="submit" value="Checkout" class="btn-primary" />
+					<input type="submit" value="<spring:message code="cart.table.label.checkout" />" class="btn-primary" />
 				</div>
 	  		</c:otherwise>
 	  	</c:choose>
   		
   		<div class="checkout">
-			<button type="button" class="btn-primary" value="Continue Shopping" onclick="window.location='<spring:url value="/home" />'">Continue Shopping</button>
-			<button type="button" class="btn-primary" value="Add To Cart" onclick="addToCart(1,1,'add')">Add To Cart</button>
+			<button type="button" class="btn-primary"  onclick="window.location='<spring:url value="/home" />'"><spring:message code="cart.label.continueshopping" /></button>
+			<button type="button" class="btn-primary"  onclick="addToCart(1,1,'add')"><spring:message code="cart.label.addtocart" /></button>
 		</div>
 </div>
   	
