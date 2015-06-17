@@ -53,7 +53,7 @@
 	</definition>
 	
 	<definition name="userregistration" extends="common">
-		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="title" value="Register" />
 		<put-attribute name="main" value="/WEB-INF/view/userregistration.jsp" />
 		<put-attribute name="current" value="addUser" />
 	</definition>

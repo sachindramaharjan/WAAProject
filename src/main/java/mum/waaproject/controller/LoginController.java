@@ -21,31 +21,20 @@ public class LoginController {
 	@Autowired
 	UserService userService;
 	
-/*	@InitBinder
-	public void initBinder(WebDataBinder binder){
-		binder.setAllowedFields("role");
-	}*/
-	
-	
 	@RequestMapping(value="/adduser", method=RequestMethod.GET)
 	public String addUser(@ModelAttribute("user") User user, Model model){
 
 		model.addAttribute("roles", Role.values());
-		System.out.println("adduser...............");
 		return "userregistration";
-		
 	}
 	
 	@RequestMapping(value="/saveuser", method=RequestMethod.POST)
 	public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult result){
 		
 		if(result.hasErrors()){
-			System.out.println("has errors"+result.getFieldError());
 			return "userregistration";
 		}else{
-			
 			userService.save(user);
-			System.out.println("user saved");
 			return "registrationsuccess";
 		}
 				
