@@ -11,6 +11,7 @@
    <li><a href="<spring:url value='/products'/>" ><span>Products</span></a></li>
    <li><a href="<spring:url value='/cart'/>"><span>Shopping Cart</span></a></li>
    <li><a href="<spring:url value='/login'/>"><span>Login</span></a></li>
+   <li><a href="<spring:url value='/logout'/>"><span>Logout</span></a></li>
    <li class='last'><a href="<spring:url value='/contactus'/>"><span>Contact Us</span></a></li>
 </ul>
 </div>

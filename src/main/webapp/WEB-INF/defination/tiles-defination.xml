@@ -52,4 +52,23 @@
 		<put-attribute name="current" value="login" />
 	</definition>
 	
+	<definition name="userregistration" extends="common">
+		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="main" value="/WEB-INF/view/userregistration.jsp" />
+		<put-attribute name="current" value="addUser" />
+	</definition>
+	
+	<definition name="registrationsuccess" extends="common">
+		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="main" value="/WEB-INF/view/registrationsuccess.jsp" />
+		<put-attribute name="current" value="addUser" />
+	</definition>
+	
+	<definition name="securedcontents" extends="common">
+		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="main" value="/WEB-INF/view/securedcontents.jsp" />
+		<put-attribute name="current" value="addUser" />
+	</definition>
+		
+	
 </tiles-definitions>

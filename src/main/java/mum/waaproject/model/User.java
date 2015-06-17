@@ -31,6 +31,12 @@ public class User {
 
 	@Column(name = "password", nullable=false)
 	private String password;
+	
+	@Column(name="enabled")
+	private Integer enabled=1;
+	
+	@Column(name="user_role")
+	private String userRole;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
@@ -82,6 +88,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Integer getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Integer enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
 	}
 
 	public List<UserRole> getRole() {

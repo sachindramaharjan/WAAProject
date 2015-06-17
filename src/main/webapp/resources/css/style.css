@@ -22,9 +22,10 @@ padding-left: 172px;
 padding-right: 238px;
 height:100%
 }
+
 #header{
 	padding-top:10px;
-	height:20%;
+	/* height:20%; */
 	border:1px solid #C5C5C5;	
 }
 #login{
@@ -32,13 +33,39 @@ height:100%
 	height:50px;
 	width:120px;
 	border:1px solid #C5C5C5;
+	font-size: 15px;
+}
+#login span{
+	color: #6E6E6E;
+	height: 20px;
+	width: 60px;
+	float: right;
+	margin-top: 15px;
+	display:block;
+}
+#login img{
+	margin-top: 10px;
+	margin-left: 5px;
 }
 #addtocart{
 	float:right;
 	height:50px;
-	width:200px;
+	width:120px;
 	border:1px solid #C5C5C5;
+	font-size: 15px;
 }
+#addtocart span{
+	color: #6E6E6E;
+	height: 20px;
+	width: 60px;
+	float: right;
+	margin-top: 15px;
+	display:block;
+}
+
+
+
+
 #navigation{
 float:left;
 width:985px;
