@@ -24,5 +24,11 @@ public class StoreServiceImpl implements StoreService {
 		return storeRepository.findByUsername(user);
 	}
 	
+	@Override
+	public Store getStoreById(int id) {
+		// TODO Auto-generated method stub
+		return storeRepository.getStoreById(id);
+	}
+	
 }
 	

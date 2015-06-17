@@ -14,4 +14,5 @@ public interface CategoryService {
 	
 	List<Category> findByLeafCategory();
 	
+	Category getCategoryById(int id);
 }

@@ -36,5 +36,11 @@ public class CategoryServiceImpl implements CategoryService{
 		// TODO Auto-generated method stub
 		return categoryRepository.findByLeafCategory();
 	}
+	
+	@Override
+	public Category getCategoryById(int id) {
+		// TODO Auto-generated method stub
+		return categoryRepository.getCategoryById(id);
+	}
 
 }

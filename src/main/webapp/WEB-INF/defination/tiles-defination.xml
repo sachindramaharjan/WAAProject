@@ -47,9 +47,17 @@
 	</definition>
 	
 	<definition name="contactus" extends="common">
-		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="title" value="WAA Project" />
+		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
 		<put-attribute name="main" value="/WEB-INF/view/contactus.jsp" />
-		<put-attribute name="current" value="login" />
+		<put-attribute name="current" value="home" />
+	</definition>
+	
+	<definition name="productdetail" extends="common">
+		<put-attribute name="title" value="WAA Project" />
+		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/product_detail.jsp" />
+		<put-attribute name="current" value="productdetail" />
 	</definition>
 	
 	<definition name="userregistration" extends="common">

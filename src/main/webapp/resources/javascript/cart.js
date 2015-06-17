@@ -6,6 +6,9 @@ var addToCart = function(productId, quantity, mode){
 		datatype:"json",
 		contentType:"application/json",
 		success:function(success){
+			$("#dialog" ).dialog({
+			    buttons: { "OK": function() { $(this).dialog("close"); } }
+			});
 		}
 	});
 }
@@ -42,3 +45,8 @@ function validate(evt) {
 	    if(theEvent.preventDefault) theEvent.preventDefault();
 	  }
 	}
+
+function addProductToCart(productId, element) {
+	var quantity = $("#"+element).val();
+	addToCart(productId, quantity, 'add');
+}

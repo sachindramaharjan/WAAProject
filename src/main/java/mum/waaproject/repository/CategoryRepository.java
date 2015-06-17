@@ -14,4 +14,6 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 	@Query("select c from category c where c.leaf = true")
 	List<Category> findByLeafCategory();
 	
+	Category getCategoryById(int id);
+	
 }

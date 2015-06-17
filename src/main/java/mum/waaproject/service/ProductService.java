@@ -1,5 +1,6 @@
 package mum.waaproject.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mum.waaproject.model.Product;
@@ -16,5 +17,7 @@ public interface ProductService {
 	public List<Product> findAll();
 	
 	public Product findOne(int productid);
+	
+	public ArrayList<Product> getFeatureProduct();
 	
 }

@@ -31,7 +31,7 @@
 			  			<c:forEach items="${cart.cartItems}" var="cart">
 			  				<tr id="product_${cart.value.product.id}">
 								<td class="cart_product">
-									<a href=""><img src="<spring:url value="/images/product/one.png" />" alt=""></a>
+									<a href=""><img src="<spring:url value="/images/product/${cart.value.product.image}" />" alt=""></a>
 								</td>
 								<td class="cart_description">
 									<h4><a href="/product/${cart.value.product.id}"><c:out value="${cart.value.product.name}"  /></a></h4>
@@ -49,7 +49,7 @@
 									<p class="cart_total_price">$ <c:out value="${cart.value.totalPrice}"/></p>
 								</td>
 								<td class="cart_delete">
-									<button type="button" onclick="removeFromCart('product_'+${cart.value.product.id},${cart.value.product.id});"><spring:message code="cart.table.label.remove" /></button>
+									<button type="button" class="btn-primary" onclick="removeFromCart('product_'+${cart.value.product.id},${cart.value.product.id});"><spring:message code="cart.table.label.remove" /></button>
 								</td>
 							</tr>
 							
@@ -69,9 +69,9 @@
 	  		</c:otherwise>
 	  	</c:choose>
   		
-  		<div class="checkout">
+  		<%-- <div class="checkout">
 			<button type="button" class="btn-primary"  onclick="window.location='<spring:url value="/home" />'"><spring:message code="cart.label.continueshopping" /></button>
 			<button type="button" class="btn-primary"  onclick="addToCart(1,1,'add')"><spring:message code="cart.label.addtocart" /></button>
-		</div>
+		</div> --%>
 </div>
   	

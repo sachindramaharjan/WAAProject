@@ -1,10 +1,11 @@
 package mum.waaproject.repository;
 
+import java.util.ArrayList;
+
 import mum.waaproject.model.Product;
 import mum.waaproject.model.Store;
 
-
-
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +19,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	@Query("select p from product p where p.store = :store and p.productcode = :productCode")
 	public Product findByProductCode(@Param("store") Store store, @Param("productCode") String productCode);
 	
+	@Query("SELECT p FROM product p")
+	public ArrayList<Product> getFeatureProducts(Pageable pageable);
+
 }

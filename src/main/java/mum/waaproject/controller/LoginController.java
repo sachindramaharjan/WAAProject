@@ -37,7 +37,6 @@ public class LoginController {
 			userService.save(user);
 			return "registrationsuccess";
 		}
-				
 	}
 	
 	@RequestMapping("/dologout")

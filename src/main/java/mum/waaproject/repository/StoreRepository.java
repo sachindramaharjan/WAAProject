@@ -14,4 +14,6 @@ public interface StoreRepository extends CrudRepository<Store, Integer> {
 	@Query("select s from store s where s.user = :user")
 	Store findByUsername(@Param("user") User user);
 	
+	public Store getStoreById(int id);
+	
 }

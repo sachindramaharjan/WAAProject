@@ -1,5 +1,6 @@
 package mum.waaproject.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mum.waaproject.model.Product;
@@ -8,6 +9,7 @@ import mum.waaproject.repository.ProductRepository;
 import mum.waaproject.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -40,6 +42,11 @@ public class ProductServiceImpl implements ProductService {
 	public Product findOne(int productid) {
 		// TODO Auto-generated method stub
 		return productRepository.findOne(productid);
+	}
+
+	@Override
+	public ArrayList<Product> getFeatureProduct() {
+		return productRepository.getFeatureProducts(new PageRequest(0, 6));
 	}
 
 }

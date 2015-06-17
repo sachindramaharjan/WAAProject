@@ -7,5 +7,6 @@ public interface StoreService {
 
 	Store findOne(int storeId);
 	Store findByUsername(User user);
+	Store getStoreById(int id);
 	
 }

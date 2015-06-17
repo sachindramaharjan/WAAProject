@@ -30,6 +30,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -57,7 +58,21 @@ public class ProductController implements HandlerExceptionResolver  {
 	public String show() {
 		return "products";
 	}
+	
+	@RequestMapping("/product")
+	public String getProductById(Model model, @RequestParam("id") int productId) {
+		
+		Product product = productService.getProductById(productId);
+		Store store = storeService.getStoreById(product.getStore().getId());
+		Category category = categoryService.getCategoryById(product.getCategory().getId());
 
+		model.addAttribute("product", product);
+		model.addAttribute("store", store);
+		model.addAttribute("category", category);
+		return "productdetail";
+	}
+	
+	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String newProductForm(Product product, Model model) {
 		
