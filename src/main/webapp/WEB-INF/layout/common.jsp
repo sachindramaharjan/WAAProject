@@ -7,7 +7,10 @@
 
 <title><tiles:getAsString name="title"></tiles:getAsString></title>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>	
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 </head>
 <body>

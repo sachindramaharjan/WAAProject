@@ -29,4 +29,6 @@
 		</c:forEach>
 	</ul>
 </div>
-
+<div id="confirm" title="Confirm" style="display:none">
+		<p>Are you sure you want to delete the product?</p>
+	</div>
