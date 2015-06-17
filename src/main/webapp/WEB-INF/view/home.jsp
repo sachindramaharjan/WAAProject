@@ -86,7 +86,7 @@
 					<spring:message code="cart.label.addtocart" />
 			</p></li>
 	</ul>
-	<div id="dialog" title="Cart Notification">
+	<div id="dialog" title="Cart Notification" style="display:none">
 		<p>The product was added to your cart.</p>
 	</div>
 </div>

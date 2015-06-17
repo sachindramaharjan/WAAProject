@@ -4,7 +4,6 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import mum.waaproject.model.Store;
-import mum.waaproject.model.User;
 import mum.waaproject.service.ProductService;
 import mum.waaproject.service.StoreService;
 import mum.waaproject.service.UserService;
@@ -15,7 +14,6 @@ public class ProductCodeValidator implements
 		ConstraintValidator<ProductCode, String> {
 
 	private Store store;
-	private User user;
 
 	@Autowired
 	private ProductService productService;
@@ -37,9 +35,8 @@ public class ProductCodeValidator implements
 		if (productCode.isEmpty()) {
 			return true;
 		}
-		
-		user = userService.findOne(1);
-		store = storeService.findByUsername(user);
+
+		store = storeService.findOne(1);
 		if (productService.findByProductCode(store, productCode) != null) {
 			return false;
 		}

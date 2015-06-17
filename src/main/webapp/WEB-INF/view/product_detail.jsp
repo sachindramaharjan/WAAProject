@@ -15,7 +15,7 @@
 		<div class="col-sm-5">
 			<div class="view-product">
 				<img src="<spring:url value="/images/product/${product.image}" />"
-					alt="" />
+					alt=""/>
 			</div>
 		</div>
 		<div class="col-sm-7">
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 	<!--/product-details-->
-	<div id="dialog" title="Cart Notification">
+	<div id="dialog" title="Cart Notification" style="display:none">
 		<p>The product was added to your cart.</p>
 	</div>
 </div>

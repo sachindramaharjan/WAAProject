@@ -5,8 +5,8 @@
 <tiles-definitions>
 	<definition name="common" template="/WEB-INF/layout/common.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="login" value="/WEB-INF/layout/login.jsp" />
-		<put-attribute name="addtocart" value="/WEB-INF/layout/addtocart.jsp" />
+		<put-attribute name="login" value="/WEB-INF/layout/france.jsp" />
+		<put-attribute name="addtocart" value="/WEB-INF/layout/english.jsp" />
 		<put-attribute name="navigation" value="/WEB-INF/layout/navigation.jsp" />
 		<put-attribute name="category" value="" />
 		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
@@ -50,7 +50,7 @@
 		<put-attribute name="title" value="WAA Project" />
 		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
 		<put-attribute name="main" value="/WEB-INF/view/contactus.jsp" />
-		<put-attribute name="current" value="home" />
+		<put-attribute name="current" value="contactus" />
 	</definition>
 	
 	<definition name="productdetail" extends="common">
@@ -63,19 +63,19 @@
 	<definition name="userregistration" extends="common">
 		<put-attribute name="title" value="Register" />
 		<put-attribute name="main" value="/WEB-INF/view/userregistration.jsp" />
-		<put-attribute name="current" value="addUser" />
+		<put-attribute name="current" value="user" />
 	</definition>
 	
 	<definition name="registrationsuccess" extends="common">
 		<put-attribute name="title" value="Contact Us" />
 		<put-attribute name="main" value="/WEB-INF/view/registrationsuccess.jsp" />
-		<put-attribute name="current" value="addUser" />
+		<put-attribute name="current" value="user" />
 	</definition>
 	
 	<definition name="securedcontents" extends="common">
 		<put-attribute name="title" value="Contact Us" />
 		<put-attribute name="main" value="/WEB-INF/view/securedcontents.jsp" />
-		<put-attribute name="current" value="addUser" />
+		<put-attribute name="current" value="user" />
 	</definition>
 		
 	

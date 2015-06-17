@@ -16,18 +16,18 @@
 				<td colspan="2"><form:errors path="name" cssStyle="color: #ff0000;" /></td>
 			</tr>
 			<tr>
-				<td><label><spring:message code="product.add.label.description" /></label></td>
-				<td><form:input path="description" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><form:errors path="description" cssStyle="color: #ff0000;" /></td>
-			</tr>
-			<tr>
 				<td><label><spring:message code="product.add.label.productcode" /></label></td>
 				<td><form:input path="productcode" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><form:errors path="productcode" cssStyle="color: #ff0000;" /></td>
+			</tr>
+			<tr>
+				<td><label><spring:message code="product.add.label.description" /></label></td>
+				<td><form:textarea path="description" rows="4" cols="22"/></td>
+			</tr>
+			<tr>
+				<td colspan="2"><form:errors path="description" cssStyle="color: #ff0000;" /></td>
 			</tr>
 			<tr>
 				<td><label><spring:message code="product.add.label.category" /></label></td>

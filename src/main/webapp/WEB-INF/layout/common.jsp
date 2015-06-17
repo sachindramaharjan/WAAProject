@@ -11,6 +11,8 @@
 
 </head>
 <body>
+	<%--get the current attribute  general.xml--%>
+	<tilesx:useAttribute name="current"/>
 	<div id="container">
 		<div id="header">
 			<div id="logo">

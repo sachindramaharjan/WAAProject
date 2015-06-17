@@ -3,23 +3,31 @@ package mum.waaproject.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Embeddable
 public class Customer {
 
+	@NotEmpty(message="Firstname cannot be empty!")
 	@Column(name = "firstname", nullable=false)
 	private String firstname;
 
+	@NotEmpty(message="Lastname cannot be empty!")
 	@Column(name = "lastname", nullable=false)
 	private String lastname;
 
+	@NotEmpty(message="Phone cannot be empty!")
 	@Column(name = "phone")
 	private String phone;
 
+	@NotEmpty(message="Mobile cannot be empty!")
 	@Column(name = "mobile")
 	private String mobile;
 	
 	@Embedded
+	@Valid
 	private Address address;
 
 	public String getFirstname() {

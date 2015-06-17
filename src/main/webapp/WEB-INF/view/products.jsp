@@ -7,5 +7,24 @@
 <div id="main">
 	<input type="button" class="btn-primary" value="Add New Product" onclick="window.location='<spring:url value="/products/add" />'"  />
 	
+	<br/>
+	
+	<h2 class="title text-center">All Products</h2>
+	<ul class="rig columns-3">
+
+		<c:forEach items="${products}" var="item">
+			<li><a
+				href=" <spring:url value="/products/product?id=${item.id}" /> "><img
+					src="<spring:url value="/images/product/${item.image}" />" /> </a>
+				<h4>$${item.price}</h4>
+				<p>${item.name}</p>
+				<p>
+					<button type="button" class="btn-primary-dashboard"
+						onclick="removeProduct(${item.id})">
+						<spring:message code="product.list.label.remove" />
+					</button>
+				</p></li>
+		</c:forEach>
+	</ul>
 </div>
 

@@ -55,7 +55,10 @@ public class ProductController implements HandlerExceptionResolver  {
 	private UserService userService;
 
 	@RequestMapping
-	public String show() {
+	public String show(Model model) {
+		
+		model.addAttribute("products", productService.findAll());
+		model.addAttribute("path", servletContext.getRealPath("/resources/images/"));
 		return "products";
 	}
 	
@@ -89,10 +92,15 @@ public class ProductController implements HandlerExceptionResolver  {
 			model = prepareModel(model);
 			return "addProduct";
 		}
-
-		Category category = categoryService.findByName("Shoe");
+		
+		System.out.println(product.getCategory().getName());
+		
+		Category category = categoryService.findOne(Integer.parseInt(product.getCategory().getName()));
 		Store store = storeService.findOne(1);
-
+	
+		System.out.println("category:" + category);
+		
+		
 		product.setStore(store);
 		product.setCategory(category);
 		product.setCreatedDate(new Date());

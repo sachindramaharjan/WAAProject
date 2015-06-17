@@ -39,6 +39,7 @@ fieldset{
 	clear: right;
 	margin-top: 4px;
 	margin-left: 4px;
+	min-height: 20px;
 }
 button{
 	display:block;

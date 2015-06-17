@@ -63,7 +63,7 @@
 						</tr>
 			  		</tbody>
 			 	 </table>  
-				
+					<button type="button" class="btn-primary" value="Continue Shopping" onclick="window.location='<spring:url value="/home" />'"><spring:message code="cart.label.continueshopping" /></button>
 					<input type="submit" value="<spring:message code="cart.table.label.checkout" />" class="btn-primary" />
 				</div>
 	  		</c:otherwise>

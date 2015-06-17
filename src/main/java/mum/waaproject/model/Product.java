@@ -47,7 +47,7 @@ public class Product {
 	private String description;
 
 	@Column(name = "productcode", nullable = false)
-	@ProductCode
+	//@ProductCode
 	@Pattern(regexp = "P[1-9]+", message = "{error.pattern.product.productcode}")
 	@NotNull(message = "{error.product.notnull.productcode}")
 	private String productcode;

@@ -16,6 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "user")
@@ -26,15 +29,18 @@ public class User {
 	@Column(name = "user_id")
 	private int id;
 
+	@NotEmpty(message="Username cannot be empty!")
 	@Column(name = "username", nullable=false, unique=true)
 	private String username;
 
+	@NotEmpty(message="Password cannot be empty!")
 	@Column(name = "password", nullable=false)
 	private String password;
 	
 	@Column(name="enabled")
-	private Integer enabled=1;
+	private int enabled=1;
 	
+	@NotEmpty(message="User role cannot be empty!")
 	@Column(name="user_role")
 	private String userRole;
 
@@ -42,7 +48,9 @@ public class User {
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	private List<UserRole> role = new ArrayList<UserRole>();
 
+	
 	@Embedded
+	@Valid
 	private Customer customer;
 
 	@OneToOne(mappedBy = "user")
@@ -89,12 +97,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public Integer getEnabled() {
+	
+	public int getEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(Integer enabled) {
+	public void setEnabled(int enabled) {
 		this.enabled = enabled;
 	}
 
@@ -105,7 +113,6 @@ public class User {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
-
 	public List<UserRole> getRole() {
 		return role;
 	}

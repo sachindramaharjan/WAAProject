@@ -119,7 +119,8 @@
   position: relative;
 }
 #cssmenu > ul > li:hover > a {
-  background: #f6f6f6;
+  background: #F7BE81;
+  border: 2px solid #FE980F;
   border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
   -webkit-border-radius: 4px 4px 0 0;
