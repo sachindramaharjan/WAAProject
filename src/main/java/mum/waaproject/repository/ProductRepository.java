@@ -21,5 +21,6 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	
 	@Query("SELECT p FROM product p")
 	public ArrayList<Product> getFeatureProducts(Pageable pageable);
-
+	
+	public ArrayList<Product> findAllByOrderByCreatedDateAsc(Pageable pageable);
 }

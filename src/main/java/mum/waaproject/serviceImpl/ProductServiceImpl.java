@@ -50,8 +50,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void delete(Product product) {
-		productRepository.delete(product);
+	public ArrayList<Product> findAllByOrderByCreatedDateAsc() {
+		// TODO Auto-generated method stub
+		return productRepository.findAllByOrderByCreatedDateAsc(new PageRequest(0, 6));
 	}
 
+	@Override
+	public void delete(Product product) {
+		// TODO Auto-generated method stub
+		
+	}
 }

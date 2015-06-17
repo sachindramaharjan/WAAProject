@@ -22,4 +22,5 @@ public interface ProductService {
 	
 	public void delete(Product product); 
 	
+	public ArrayList<Product> findAllByOrderByCreatedDateAsc();
 }
