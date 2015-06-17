@@ -7,22 +7,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-
-@Entity
+@Entity(name="store")
 @Table(name = "store")
 public class Store {
 
 	@Id
+	@GeneratedValue
 	@Column(name = "store_id", nullable=false, unique=true)
-	@GeneratedValue(generator = "gen")
-	@GenericGenerator(name = "gen", strategy = "foreign", parameters = @Parameter(name = "property", value = "user"))
 	private int id;
 
 	@Column(name = "name", nullable=false, unique=true)
@@ -32,7 +28,7 @@ public class Store {
 	private String description;
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="user_id")
 	private User user;
 	
 	@OneToMany(mappedBy="store")

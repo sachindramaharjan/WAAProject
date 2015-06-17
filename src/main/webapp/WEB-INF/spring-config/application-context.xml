@@ -55,5 +55,8 @@
 	<mvc:resources location="/resources/javascript/" mapping="/javascript/**"></mvc:resources>
 	<mvc:resources location="/resources/images/" mapping="/images/**"></mvc:resources>
 	
+	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	  <property name="maxUploadSize" value="10240000"/>
+	</bean>
 	 
 </beans>

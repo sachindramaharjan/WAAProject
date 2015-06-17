@@ -1,5 +1,5 @@
 package mum.waaproject.enumeration;
 
 public enum StockStatus {
-	AVAILABLE, OUTOFSTOCK;
+	AVAILABLE, IN_PRODUCTION, OUTOFSTOCK;
 }

@@ -3,6 +3,7 @@ package mum.waaproject.serviceImpl;
 import java.util.List;
 
 import mum.waaproject.model.Product;
+import mum.waaproject.model.Store;
 import mum.waaproject.repository.ProductRepository;
 import mum.waaproject.service.ProductService;
 
@@ -21,8 +22,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product findByProductCode(String productCode) {
-		 return productRepository.findByProductCode(productCode);
+	public Product findByProductCode(Store store, String productCode) {
+		 return productRepository.findByProductCode(store,productCode);
 	}
 
 	@Override

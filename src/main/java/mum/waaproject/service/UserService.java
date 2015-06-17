@@ -1,5 +1,8 @@
 package mum.waaproject.service;
 
-public interface UserService {
+import mum.waaproject.model.User;
 
+public interface UserService {
+	
+	User findOne(int userId);
 }

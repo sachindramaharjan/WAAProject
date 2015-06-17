@@ -153,8 +153,6 @@
 			<version>1.3.2</version>
 		</dependency>
 
-
-
 	</dependencies>
 	<build>
 		<finalName>WAAProject</finalName> <!-- Need to be changed later -->

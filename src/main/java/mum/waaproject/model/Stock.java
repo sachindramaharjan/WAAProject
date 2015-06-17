@@ -11,8 +11,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-@Entity
-@Table(name = "stock")
+
 public class Stock {
 
 	@Id
@@ -26,10 +25,10 @@ public class Stock {
 
 	@Column(name = "status", nullable=false)
 	private String Status;
-	
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private Product product;
+//	
+//	@OneToOne
+//	@PrimaryKeyJoinColumn
+//	private Product product;
 
 	public int getAvailable() {
 		return available;
@@ -55,14 +54,11 @@ public class Stock {
 		this.id = id;
 	}
 
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-	
-	
-
+//	public Product getProduct() {
+//		return product;
+//	}
+//
+//	public void setProduct(Product product) {
+//		this.product = product;
+//	}
 }
