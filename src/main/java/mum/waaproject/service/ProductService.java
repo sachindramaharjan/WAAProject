@@ -20,4 +20,6 @@ public interface ProductService {
 	
 	public ArrayList<Product> getFeatureProduct();
 	
+	public void delete(Product product); 
+	
 }

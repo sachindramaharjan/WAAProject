@@ -49,4 +49,9 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.getFeatureProducts(new PageRequest(0, 6));
 	}
 
+	@Override
+	public void delete(Product product) {
+		productRepository.delete(product);
+	}
+
 }
