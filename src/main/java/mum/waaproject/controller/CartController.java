@@ -19,6 +19,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * 
+ * @author sachindra
+ *
+ */
 @Controller
 @RequestMapping("/cart")
 public class CartController {
@@ -29,11 +34,22 @@ public class CartController {
 	@Autowired
 	private ProductService productService;
 
+	/**
+	 * Redirects to showCart() method with Session Id as Path Variable
+	 * @param request
+	 * @return 
+	 */
 	@RequestMapping
 	public String show(HttpServletRequest request) {
 		return "redirect:/cart/view/" + request.getSession(true).getId();
 	}
 
+	/**
+	 * Displays cart items of user
+	 * @param cartId
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
 	public String showCart(@PathVariable("id") String cartId, Model model) {
 		model.addAttribute("cartId", cartId);
@@ -46,7 +62,15 @@ public class CartController {
 		model.addAttribute("cart", cart);
 		return "cart";
 	}
-
+	
+	/**
+	 * Adds item to the cart
+	 * @param productId
+	 * @param quantity
+	 * @param mode
+	 * @param model
+	 * @param request
+	 */
 	@RequestMapping(value = "/add/{productid}", method = RequestMethod.PUT)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	public void addToCart(
@@ -76,6 +100,12 @@ public class CartController {
 
 	}
 
+	/**
+	 * Removes item from cart
+	 * @param productId
+	 * @param model
+	 * @param request
+	 */
 	@RequestMapping(value = "/remove/{productid}", method = RequestMethod.DELETE)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	public void removeFromCart(
@@ -96,5 +126,4 @@ public class CartController {
 		}
 
 	}
-
 }

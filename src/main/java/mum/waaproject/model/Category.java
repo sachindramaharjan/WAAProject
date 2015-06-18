@@ -1,5 +1,6 @@
 package mum.waaproject.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +16,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity(name="category")
 @Table(name = "category",  uniqueConstraints=@UniqueConstraint(columnNames={"name", "store_id"}))
-public class Category {
+public class Category implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "category_id")
@@ -28,10 +32,12 @@ public class Category {
 	private int id;
 	
 	@NotEmpty(message="Name cannot be empty")
+	@Size(min=4, max=40, message="Size must be between 4 and 40 characters")
 	@Column(name = "name", nullable=false)
 	private String name;
 
 	@NotEmpty(message="Description cannot be empty")
+	@Size(min=10, max=200, message="Size must be between 10 and 200 characters")
 	@Column(name = "description")
 	private String description;
 

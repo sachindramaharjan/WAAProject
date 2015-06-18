@@ -8,15 +8,26 @@ import mum.waaproject.repository.CartRepository;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Holds user cart in memory
+ * @author sachindra
+ *
+ */
 @Component
 public class CartRepositoryImpl implements CartRepository {
 
 	private Map<String, Cart> cartList;
 
+	/**
+	 * Creates new instance of HashMap<String, Cart>
+	 */
 	public CartRepositoryImpl() {
 		cartList = new HashMap<String, Cart>();
 	}
 
+	/**
+	 * Adds cart into the map, throws IllegalArgumentException
+	 */
 	@Override
 	public Cart create(Cart cart) {
 		if (cartList.containsKey(cart.getCartId())) {
@@ -27,11 +38,17 @@ public class CartRepositoryImpl implements CartRepository {
 		return cart;
 	}
 
+	/**
+	 * Returns HashMap
+	 */
 	@Override
 	public Cart read(String cartId) {
 		return cartList.get(cartId);
 	}
 
+	/**
+	 * Updates HashMap, throws IllegalArgumentException
+	 */
 	@Override
 	public void update(String cartId, Cart cart) {
 		if (!cartList.containsKey(cart.getCartId())) {
@@ -42,6 +59,9 @@ public class CartRepositoryImpl implements CartRepository {
 		cartList.put(cartId, cart);
 	}
 
+	/**
+	 * Deletes cart from HashMap, throws IllegalArgumentException
+	 */
 	@Override
 	public void delete(String cartId) {
 		if (!cartList.containsKey(cartId)) {

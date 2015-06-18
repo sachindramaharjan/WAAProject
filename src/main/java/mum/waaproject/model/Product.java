@@ -1,5 +1,6 @@
 package mum.waaproject.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,8 +19,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import mum.waaproject.validator.ProductCode;
-
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity(name = "product")
 @Table(name = "product", uniqueConstraints = @UniqueConstraint(columnNames = {
 		"store_id", "productcode" }))
-public class Product {
+public class Product implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

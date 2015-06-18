@@ -1,5 +1,7 @@
 package mum.waaproject.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,9 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "orderline", uniqueConstraints=@UniqueConstraint(columnNames={"order_id", "product_id"}))
-public class OrderLine {
+public class OrderLine implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

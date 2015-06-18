@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import mum.waaproject.enumeration.StockStatus;
+import mum.waaproject.exception.CategoryNotFoundException;
 import mum.waaproject.exception.FileUploadException;
+import mum.waaproject.exception.ProductNotFoundException;
 import mum.waaproject.model.Category;
 import mum.waaproject.model.Product;
 import mum.waaproject.model.Store;
@@ -37,6 +39,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * 
+ * @author sachindra
+ *
+ */
 @Controller
 @RequestMapping("/products")
 public class ProductController implements HandlerExceptionResolver {
@@ -56,6 +63,11 @@ public class ProductController implements HandlerExceptionResolver {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * Displays all products 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping
 	public String show(Model model) {
 
@@ -65,10 +77,21 @@ public class ProductController implements HandlerExceptionResolver {
 		return "products";
 	}
 
+	
+	/**
+	 * Gets product by product Id
+	 * @param model
+	 * @param productId
+	 * @return 
+	 */
 	@RequestMapping("/product/{id}")
 	public String getProductById(Model model, @PathVariable("id") int productId) {
 
 		Product product = productService.getProductById(productId);
+		if(product == null){
+			throw new ProductNotFoundException(productId, "product.error.notfound");
+		}
+		
 		Store store = storeService.getStoreById(product.getStore().getId());
 		Category category = categoryService.getCategoryById(product
 				.getCategory().getId());
@@ -78,7 +101,13 @@ public class ProductController implements HandlerExceptionResolver {
 		model.addAttribute("category", category);
 		return "productdetail";
 	}
-
+	
+	/**
+	 * Displays add new product form
+	 * @param product
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String newProductForm(Product product, Model model) {
 
@@ -87,6 +116,13 @@ public class ProductController implements HandlerExceptionResolver {
 		return "addProduct";
 	}
 
+	/**
+	 * Adds new record of product
+	 * @param product
+	 * @param result
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String newProduct(@ModelAttribute("product") @Valid Product product,
 			BindingResult result, Model model) {
@@ -116,12 +152,20 @@ public class ProductController implements HandlerExceptionResolver {
 		return "redirect:/products";
 	}
 
+	/**
+	 * Deletes product and its image
+	 * @param productId
+	 */
 	@RequestMapping(value = "/remove/{productId}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void removeProduct(@PathVariable("productId") int productId) {
 
 		Product product = productService.findOne(productId);
 
+		if(product == null){
+			throw new ProductNotFoundException(productId, "product.error.notfound");
+		}
+		
 		try {
 			String imagePath = servletContext
 					.getRealPath("/resources/images/product/"
@@ -137,11 +181,20 @@ public class ProductController implements HandlerExceptionResolver {
 		productService.delete(product);
 	}
 	
+	/**
+	 * Displays products associated with particular category
+	 * @param categoryId
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/category/{categoryId}", method = RequestMethod.GET)
 	public String categoryProducts(@PathVariable("categoryId") int categoryId, Model model){
 		
 		Category category = categoryService.findOne(categoryId);
-		System.out.println(category.getName());
+		
+		if(category == null){
+			throw new CategoryNotFoundException(categoryId, "category.error.notfound");
+		}
 		
 		List<Product> productList = productService.getProductByCategory(category);
 		System.out.println(productList.size());
@@ -151,7 +204,12 @@ public class ProductController implements HandlerExceptionResolver {
 		
 		return "categoryProduct";
 	}
-
+	
+	/**
+	 * Prepares data model from stock status and category and adds them to the Model object
+	 * @param model
+	 * @return
+	 */
 	public Model prepareModel(Model model) {
 		Map<String, String> stockStatus = new HashMap<String, String>();
 		stockStatus.put(StockStatus.AVAILABLE.name(),
@@ -174,6 +232,10 @@ public class ProductController implements HandlerExceptionResolver {
 		return model;
 	}
 
+	/**
+	 * Validates image type, throws FileUploadException 
+	 * @param file
+	 */
 	private void validateImage(MultipartFile file) {
 		if (!file.getContentType().equals("image/jpeg")) {
 			throw new FileUploadException(file.getName(),
@@ -181,6 +243,12 @@ public class ProductController implements HandlerExceptionResolver {
 		}
 	}
 
+	/**
+	 * Uploads file to the server path, throws FileUploadException
+	 * @param file
+	 * @param product
+	 * @return
+	 */
 	public Product fileUpload(MultipartFile file, Product product) {
 		if (!file.isEmpty()) {
 			validateImage(file);

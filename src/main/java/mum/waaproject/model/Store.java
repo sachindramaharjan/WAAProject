@@ -1,5 +1,6 @@
 package mum.waaproject.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,9 @@ import javax.persistence.Table;
 
 @Entity(name="store")
 @Table(name = "store")
-public class Store {
+public class Store implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue

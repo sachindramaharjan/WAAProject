@@ -12,17 +12,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+/**
+ * Product Service
+ * @author sachindra
+ *
+ */
 @Service
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
 	
+	/**
+	 * Delegates getProductById to ProductRepository, returns Product object
+	 */
 	@Override
 	public Product getProductById(int id) {
 		return productRepository.getProductById(id);
 	}
 
+	/**
+	 * Delegates findByProduct
+	 */
 	@Override
 	public Product findByProductCode(Store store, String productCode) {
 		 return productRepository.findByProductCode(store,productCode);

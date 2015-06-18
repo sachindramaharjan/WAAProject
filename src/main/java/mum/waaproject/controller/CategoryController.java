@@ -19,11 +19,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
+/**
+ * 
+ * @author sachindra
+ *
+ */
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
 
+	
 	@Autowired
 	public CategoryService categoryService;
 
@@ -33,6 +38,12 @@ public class CategoryController {
 	@Autowired
 	public ProductService productService;
 
+	
+	/**
+	 * Returns all categories
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping
 	public String getAll(Model model) {
 
@@ -41,7 +52,12 @@ public class CategoryController {
 		return "categories";
 	}
 
-	@RequestMapping("/addCategory")
+	/**
+	 * Displays add new category form
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/addCategory", method=RequestMethod.GET)
 	public String addCategory(Model model) {
 		model.addAttribute("category", new Category());
 		model.addAttribute("rootCategoryList",
@@ -51,23 +67,33 @@ public class CategoryController {
 		return "addcategory";
 	}
 
+	/**
+	 * Adds new category and redirects to category page if successful otherwise display validation errors
+	 * @param category
+	 * @param request
+	 * @param result
+	 * @return
+	 */
 	@RequestMapping(value = "/saveCategory", method = RequestMethod.POST)
-	public String addCategory(
-			@Valid @ModelAttribute("category") Category category,
-			HttpServletRequest request, BindingResult result) {
-
+	public String saveCategory(@ModelAttribute("category") @Valid Category category,BindingResult result,
+			HttpServletRequest request) {
+		
 		if (result.hasErrors()) {
 			return "addcategory";
 		} else {
-
 			categoryService.save(category);
 			HttpSession session = request.getSession();
 			session.setAttribute("categoryList", categoryService.findAll());
 			return "redirect:/category";
 		}
-
 	}
 
+	/**
+	 * Deletes a category
+	 * @param id
+	 * @param model
+	 * @param request
+	 */
 	@RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void deleteCategory(@PathVariable("id") int id, Model model,

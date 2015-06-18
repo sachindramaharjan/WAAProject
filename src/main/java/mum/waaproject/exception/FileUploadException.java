@@ -3,6 +3,11 @@ package mum.waaproject.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * File upload exception, called when there is any error with file upload.
+ * @author sachindra
+ *
+ */
 @ResponseStatus(value=HttpStatus.BAD_REQUEST, reason="File upload errror")
 public class FileUploadException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

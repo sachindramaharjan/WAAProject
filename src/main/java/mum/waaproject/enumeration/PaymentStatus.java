@@ -1,5 +1,11 @@
 package mum.waaproject.enumeration;
 
+
+/**
+ * Description of Payment status. The payment status can be NEW, PROCESSED, COMPLETE or CANCELLED.
+ * @author sachindra
+ *
+ */
 public enum PaymentStatus {
-	PROCESSED, COMPLETE, CANCELLED;
+	NEW, PROCESSED, COMPLETE, CANCELLED;
 }

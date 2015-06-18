@@ -1,5 +1,7 @@
 package mum.waaproject.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
@@ -8,7 +10,9 @@ import javax.validation.Valid;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Embeddable
-public class Customer {
+public class Customer implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	@NotEmpty(message="Firstname cannot be empty!")
 	@Column(name = "firstname", nullable=false)
