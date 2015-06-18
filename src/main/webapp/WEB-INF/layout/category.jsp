@@ -8,20 +8,15 @@
   <li><a href="#about"><span class="nav">About</span></a></li>
 </ul> -->
 <c:forEach items="${categoryList}" var="category">
-
-
 	 <ul id="${category.id}">
-
 			<li class="category_name"><c:if test="${category.leaf ==false}">
-
 					<span class="nav"><b><c:out
 							value="${category.name}" /></b> </span>
 							</c:if>
 				</li>
 	 </ul>	
 			<tr>	
-			<c:forEach items="${categoryList}"
-					var="category2">
+			<c:forEach items="${categoryList}" var="category2">
 					
 					<c:if test="${category2.leaf ==true}">
 						<c:if test="${category2.parent.id==category.id}">
@@ -31,10 +26,6 @@
 						</c:if>
 					</c:if>
 				</c:forEach>
-
-
-
 		</tr>
-
 	</c:forEach>
 </div>
