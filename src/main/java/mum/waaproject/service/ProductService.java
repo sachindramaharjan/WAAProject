@@ -24,5 +24,5 @@ public interface ProductService {
 	
 	public List<Product> getProductByCategory(Category category);
 	
-	public List<Product> findAllByOrderByCreatedDateAsc();
+	public List<Product> findAllByOrderByCreatedDateDesc();
 }

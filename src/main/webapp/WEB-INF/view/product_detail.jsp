@@ -28,7 +28,7 @@
 				</p>
 				<span>US $${product.price}</span> <br /> <label><spring:message
 						code="cart.table.label.quantity" />:</label><input id="quantity_val"
-					type="text" value="3" />
+					type="text" value="1" />
 				<button type="button" class="btn-primary-dashboard"
 					onclick="addProductToCart(${product.id}, 'quantity_val')">
 					<spring:message code="cart.label.addtocart" />

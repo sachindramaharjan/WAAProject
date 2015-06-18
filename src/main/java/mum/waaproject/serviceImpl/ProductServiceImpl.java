@@ -50,18 +50,18 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public  List<Product> getProductByCategory(Category category) {
+		return productRepository.getProductByCategory(category);
+	}
+		
 	public void delete(Product product) {
 		productRepository.delete(product);
 	}
 
 	@Override
-	public  List<Product> getProductByCategory(Category category) {
-		return productRepository.getProductByCategory(category);
-	}
-
-	@Override
-	public List<Product> findAllByOrderByCreatedDateAsc() {
-		// TODO Auto-generated method stub
+	public List<Product> findAllByOrderByCreatedDateDesc() {
 		return productRepository.findAllByOrderByCreatedDateDesc(new PageRequest(0, 6));
 	}
+
+	
 }
