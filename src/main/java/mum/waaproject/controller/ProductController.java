@@ -32,7 +32,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -66,8 +65,8 @@ public class ProductController implements HandlerExceptionResolver {
 		return "products";
 	}
 
-	@RequestMapping("/product")
-	public String getProductById(Model model, @RequestParam("id") int productId) {
+	@RequestMapping("/product/{id}")
+	public String getProductById(Model model, @PathVariable("id") int productId) {
 
 		Product product = productService.getProductById(productId);
 		Store store = storeService.getStoreById(product.getStore().getId());
@@ -136,6 +135,21 @@ public class ProductController implements HandlerExceptionResolver {
 		}
 
 		productService.delete(product);
+	}
+	
+	@RequestMapping(value="/category/{categoryId}", method = RequestMethod.GET)
+	public String categoryProducts(@PathVariable("categoryId") int categoryId, Model model){
+		
+		Category category = categoryService.findOne(categoryId);
+		System.out.println(category.getName());
+		
+		List<Product> productList = productService.getProductByCategory(category);
+		System.out.println(productList.size());
+		
+		model.addAttribute("category", category.getName());
+		model.addAttribute("products", productList);
+		
+		return "categoryProduct";
 	}
 
 	public Model prepareModel(Model model) {

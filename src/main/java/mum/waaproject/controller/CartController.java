@@ -31,11 +31,11 @@ public class CartController {
 
 	@RequestMapping
 	public String show(HttpServletRequest request) {
-		return "redirect:/cart/view?Id=" + request.getSession(true).getId();
+		return "redirect:/cart/view/" + request.getSession(true).getId();
 	}
 
-	@RequestMapping(value = "/view", method = RequestMethod.GET)
-	public String showCart(@RequestParam("Id") String cartId, Model model) {
+	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+	public String showCart(@PathVariable("id") String cartId, Model model) {
 		model.addAttribute("cartId", cartId);
 		Cart cart = cartService.read(cartId);
 

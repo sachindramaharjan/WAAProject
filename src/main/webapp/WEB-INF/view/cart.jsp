@@ -31,7 +31,7 @@
 			  			<c:forEach items="${cart.cartItems}" var="cart">
 			  				<tr id="product_${cart.value.product.id}">
 								<td class="cart_product">
-									<a href=""><img src="<spring:url value="/images/product/${cart.value.product.image}" />" alt=""></a>
+									<a href="<spring:url value="/products/product/${cart.value.product.id}"/>"><img src="<spring:url value="/images/product/${cart.value.product.image}" />" alt=""></a>
 								</td>
 								<td class="cart_description">
 									<h4><a href="/product/${cart.value.product.id}"><c:out value="${cart.value.product.name}"  /></a></h4>
@@ -63,12 +63,16 @@
 						</tr>
 			  		</tbody>
 			 	 </table>  
-					<button type="button" class="btn-primary" value="Continue Shopping" onclick="window.location='<spring:url value="/home" />'"><spring:message code="cart.label.continueshopping" /></button>
-					<input type="submit" value="<spring:message code="cart.table.label.checkout" />" class="btn-primary" />
+					<input type="submit"
+					value="<spring:message code="cart.table.label.checkout" />"
+					onclick="checkOut('<spring:url value="/home" />')"
+					class="btn-primary" />
 				</div>
 	  		</c:otherwise>
 	  	</c:choose>
-  		
+  		<div id="dialog" title="Cart Checkout" style="display: none;">
+		<p>You have checkout your cart. Thank you!</p>
+	</div>
   		<%-- <div class="checkout">
 			<button type="button" class="btn-primary"  onclick="window.location='<spring:url value="/home" />'"><spring:message code="cart.label.continueshopping" /></button>
 			<button type="button" class="btn-primary"  onclick="addToCart(1,1,'add')"><spring:message code="cart.label.addtocart" /></button>

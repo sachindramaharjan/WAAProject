@@ -50,3 +50,14 @@ function addProductToCart(productId, element) {
 	var quantity = $("#"+element).val();
 	addToCart(productId, quantity, 'add');
 }
+
+function checkOut(root_url) {
+	$("#dialog").dialog({
+		buttons : {
+			"OK" : function() {
+				$(this).dialog("close");
+				window.location.href = "http://"+window.location.host+root_url;
+			}
+		}
+	});
+}

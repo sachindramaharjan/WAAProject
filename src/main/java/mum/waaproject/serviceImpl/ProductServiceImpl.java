@@ -1,8 +1,8 @@
 package mum.waaproject.serviceImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import mum.waaproject.model.Category;
 import mum.waaproject.model.Product;
 import mum.waaproject.model.Store;
 import mum.waaproject.repository.ProductRepository;
@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ArrayList<Product> getFeatureProduct() {
+	public List<Product> getFeatureProduct() {
 		return productRepository.getFeatureProducts(new PageRequest(0, 6));
 	}
 
@@ -54,4 +54,14 @@ public class ProductServiceImpl implements ProductService {
 		productRepository.delete(product);
 	}
 
+	@Override
+	public  List<Product> getProductByCategory(Category category) {
+		return productRepository.getProductByCategory(category);
+	}
+
+	@Override
+	public List<Product> findAllByOrderByCreatedDateAsc() {
+		// TODO Auto-generated method stub
+		return productRepository.findAllByOrderByCreatedDateDesc(new PageRequest(0, 6));
+	}
 }

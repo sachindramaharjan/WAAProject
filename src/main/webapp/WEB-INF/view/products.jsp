@@ -16,7 +16,7 @@
 
 		<c:forEach items="${products}" var="item">
 			<li><a
-				href=" <spring:url value="/products/product?id=${item.id}" /> "><img
+				href=" <spring:url value="/products/product/${item.id}" /> "><img
 					src="<spring:url value="/images/product/${item.image}" />" /> </a>
 				<h4>$${item.price}</h4>
 				<p>${item.name}</p>
@@ -30,5 +30,5 @@
 	</ul>
 </div>
 <div id="confirm" title="Confirm" style="display:none">
-		<p>Are you sure you want to delete the product?</p>
+		<p><spring:message code="product.dialog.message"/></p>
 	</div>

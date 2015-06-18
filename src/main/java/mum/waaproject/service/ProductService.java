@@ -1,8 +1,8 @@
 package mum.waaproject.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import mum.waaproject.model.Category;
 import mum.waaproject.model.Product;
 import mum.waaproject.model.Store;
 
@@ -18,8 +18,11 @@ public interface ProductService {
 	
 	public Product findOne(int productid);
 	
-	public ArrayList<Product> getFeatureProduct();
+	public List<Product> getFeatureProduct();
 	
 	public void delete(Product product); 
 	
+	public List<Product> getProductByCategory(Category category);
+	
+	public List<Product> findAllByOrderByCreatedDateAsc();
 }

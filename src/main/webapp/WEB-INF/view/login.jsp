@@ -47,10 +47,10 @@ button{
 }
 
 legend{
-	background-color: #F2F2F2;
+	background-color: #FE980F;
 	border-radius: 5px;
 	border: 2px solid #6E6E6E;
-	padding: 4px;
+	padding: 2px;
 }
 #failmsg{
 	color:red;
@@ -84,7 +84,7 @@ legend{
                 
                 <label for="password" class="formlabel">Password:</label>
                 <input type='password' name='password' id="password" class="forminput"></td>
-				<button>Login</button>
+				<button class="btn-primary">Login</button>
     </form>
     </fieldset>
 </body>

@@ -35,6 +35,14 @@
 				</button>
 				</span>
 				<p>
+					<spring:message code="product.add.label.stock" />
+					: ${product.stock}
+				</p>
+				<p>
+					<spring:message code="product.add.label.stock_status" />
+					: ${product.stock_status}
+				</p>
+				<p>
 					<b><spring:message code="product.add.label.store" />:</b>
 					${store.name}
 				</p>
@@ -49,7 +57,7 @@
 	</div>
 	<!--/product-details-->
 	<div id="dialog" title="Cart Notification" style="display:none">
-		<p>The product was added to your cart.</p>
+		<p><p><spring:message code="cart.dialog.message" /></p></p>
 	</div>
 </div>
 

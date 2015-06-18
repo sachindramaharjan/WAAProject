@@ -49,9 +49,10 @@ button{
 }
 
 legend{
-	background-color: #F2F2F2;
+	background-color: #FE980F;
 	border-radius: 5px;
 	border: 2px solid #6E6E6E;
+	padding: 2px;
 }
 
 </style>
@@ -115,7 +116,6 @@ legend{
 <form:input  path="customer.address.country" class="forminput"/>
 <form:errors path="customer.address.country" cssClass="formerror"/><br>
 
-<button>Register</button>
-
+<button class="btn-primary">Register</button>
 </form:form>
 </fieldset>
