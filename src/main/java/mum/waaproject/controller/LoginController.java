@@ -56,9 +56,10 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping(value="/saveuser", method=RequestMethod.POST)
-	public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult result){
+	public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model){
 		
 		if(result.hasErrors()){
+			model.addAttribute("roles", Role.values());
 			return "userregistration";
 		}else{
 			userService.save(user);

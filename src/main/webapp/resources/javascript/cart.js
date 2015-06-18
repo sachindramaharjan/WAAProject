@@ -52,7 +52,7 @@ function addProductToCart(productId, element) {
 }
 
 function checkOut(root_url) {
-	$("#dialog").dialog({
+	$("#checkoutdialog").dialog({
 		buttons : {
 			"OK" : function() {
 				$(this).dialog("close");

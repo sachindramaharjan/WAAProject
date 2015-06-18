@@ -12,8 +12,10 @@
 	<http auto-config="true">
 		 <intercept-url pattern="/products" access="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')" />
 		 <intercept-url pattern="/products/add" access="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')" />
+		 <intercept-url pattern="/products/remove**" access="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')" />
+	 	  <intercept-url pattern="/category" access="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')" />
 		  <intercept-url pattern="/category/addCategory" access="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')" />
-	<!-- 	 <intercept-url pattern="/category/saveCategory" access="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')" /> -->
+	 	 <intercept-url pattern="/category/saveCategory" access="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')" /> 
 		<form-login 
 			login-processing-url="/login" 
 			login-page="/login"

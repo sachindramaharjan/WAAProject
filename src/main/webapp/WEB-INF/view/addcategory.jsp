@@ -58,7 +58,7 @@ legend{
 
 
 <fieldset>
-<legend>Add Categories</legend>
+<legend>Add Category</legend>
 <form:form modelAttribute="category" action="saveCategory" method="POST" class="forminput" >
 
 <form:label path="name" class="formlabel">Category Name</form:label> 

@@ -98,7 +98,7 @@
 				</div>
 	  		</c:otherwise>
 	  	</c:choose>
-  		<div id="dialog" title="Cart Checkout" style="display: none;">
+  		<div id="checkoutdialog" title="Cart Checkout" style="display: none;">
 		<p>You have checkout your cart. Thank you!</p>
 	</div>
 </div>
