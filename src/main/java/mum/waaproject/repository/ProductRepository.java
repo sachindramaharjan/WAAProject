@@ -19,7 +19,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	@Query("select p from product p where p.store = :store and p.productcode = :productCode")
 	public Product findByProductCode(@Param("store") Store store, @Param("productCode") String productCode);
 	
-	@Query("SELECT p FROM product p")
+	@Query("SELECT p FROM product p WHERE p.isFeatured = 1")
 	public ArrayList<Product> getFeatureProducts(Pageable pageable);
 	
 	public ArrayList<Product> findAllByOrderByCreatedDateAsc(Pageable pageable);

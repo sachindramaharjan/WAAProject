@@ -35,6 +35,14 @@
 				</button>
 				</span>
 				<p>
+					<spring:message code="product.add.label.stock" />
+					: ${product.stock}
+				</p>
+				<p>
+					<spring:message code="product.add.label.stock_status" />
+					: ${product.stock_status}
+				</p>
+				<p>
 					<b><spring:message code="product.add.label.store" />:</b>
 					${store.name}
 				</p>
