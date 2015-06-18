@@ -17,7 +17,7 @@ public class HomeController {
 	@RequestMapping(value={"/", "/home"}, method = RequestMethod.GET)
 	public String helloWorld(Model model){
 		model.addAttribute("featureProducts", productService.getFeatureProduct());
-		model.addAttribute("newProducts", productService.findAllByOrderByCreatedDateAsc());
+		model.addAttribute("newProducts", productService.findAllByOrderByCreatedDateDesc());
 		return "home";
 	}
 }

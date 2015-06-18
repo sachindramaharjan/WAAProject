@@ -50,9 +50,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ArrayList<Product> findAllByOrderByCreatedDateAsc() {
+	public ArrayList<Product> findAllByOrderByCreatedDateDesc() {
 		// TODO Auto-generated method stub
-		return productRepository.findAllByOrderByCreatedDateAsc(new PageRequest(0, 6));
+		return productRepository.findAllByOrderByCreatedDateDesc(new PageRequest(0, 6));
 	}
 
 	@Override
