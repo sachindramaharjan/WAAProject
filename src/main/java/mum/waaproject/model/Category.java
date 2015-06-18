@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity(name="category")
 @Table(name = "category",  uniqueConstraints=@UniqueConstraint(columnNames={"name", "store_id"}))
 public class Category {
@@ -24,10 +26,12 @@ public class Category {
 	@Column(name = "category_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
+	
+	@NotEmpty(message="Name cannot be empty")
 	@Column(name = "name", nullable=false)
 	private String name;
 
+	@NotEmpty(message="Description cannot be empty")
 	@Column(name = "description")
 	private String description;
 

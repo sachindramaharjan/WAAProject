@@ -15,4 +15,10 @@ public interface CategoryService {
 	List<Category> findByLeafCategory();
 	
 	Category getCategoryById(int id);
+	
+	List<Category> getRootCategories();
+	
+	void delete(int id);
+
+	void save(Category category);
 }

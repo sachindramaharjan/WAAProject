@@ -16,4 +16,6 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 	
 	Category getCategoryById(int id);
 	
+	List<Category> getCategoryByLeaf(boolean b);
+	
 }

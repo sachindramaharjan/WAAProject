@@ -10,7 +10,8 @@
 <div id='cssmenu'>
 <ul>
    <li class="${current == 'home' ? 'active': ''}"><a href="<spring:url value='/home'/>"><span>Home</span></a></li>
-   
+	   	<li class="${current == 'home' ? 'active': ''}"><a href="<spring:url value='/category'/>" ><span>Category</span></a></li>
+	   
    <security:authorize access="hasRole('ROLE_ADMIN')">
    	<li class="${current == 'products' ? 'active': ''}"><a href="<spring:url value='/products'/>" ><span>Products</span></a></li>
    </security:authorize>

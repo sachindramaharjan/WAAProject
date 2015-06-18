@@ -85,4 +85,18 @@
 		<put-attribute name="current" value="user" />
 	</definition>
 	
+	<definition name="categories" extends="common">
+		<put-attribute name="title" value="Categories" />
+		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/categories.jsp" /> 
+		<put-attribute name="current" value="categories" />
+	</definition>
+	
+	<definition name="addcategory" extends="common">
+		<put-attribute name="title" value="Add Category" />
+		<put-attribute name="category" value="/WEB-INF/layout/category.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/addcategory.jsp" /> 
+		<put-attribute name="current" value="addcategory" />
+	</definition>
+	
 </tiles-definitions>
