@@ -1,0 +1,11 @@
+mum.waaproject.controller
+mum.waaproject.enumeration
+mum.waaproject.exception
+mum.waaproject.handler
+mum.waaproject.listener
+mum.waaproject.model
+mum.waaproject.repository
+mum.waaproject.repositoryImpl
+mum.waaproject.service
+mum.waaproject.serviceImpl
+mum.waaproject.validator
